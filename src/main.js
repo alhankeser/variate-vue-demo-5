@@ -6,15 +6,17 @@ import Variate from '@variate/vue';
 
 Vue.use(Variate, {
     debug: true,
-    tracking: true,
+    tracking: {
+      enabled: true, // Global tracking switch, optional, default to true
+      default: true, // Variate tracking switch, optional, default to true
+      reporter: async () => true // Same as before, but now support async/Promises
+    },
     config,
 });
 
 Vue.config.productionTip = false
 
 import router from './router'
-
-Vue.config.productionTip = false
 
 new Vue({
   router,
